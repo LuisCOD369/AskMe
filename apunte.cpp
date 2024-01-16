@@ -22,5 +22,5 @@ const QString &Apunte::concepto() const
 
 const QString Apunte::toString() const
 {
-    return m_termino + ": " + m_concepto;
+    return m_termino + ".- " + m_concepto;
 }

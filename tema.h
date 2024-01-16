@@ -15,7 +15,7 @@ public:
 
     const QString &nombre() const;
     const QList<Apunte *> &apuntes() const;
-
+    const QString toString() const;
 private:
     QString m_nombre;
     QList<Apunte*> m_apuntes;

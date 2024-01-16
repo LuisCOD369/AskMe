@@ -22,3 +22,12 @@ const QList<Apunte *> &Tema::apuntes() const
 {
     return m_apuntes;
 }
+
+const QString Tema::toString() const
+{
+    QString str = "Tema: " + m_nombre + "\n";
+    foreach(Apunte *a, m_apuntes){
+        str += "\t"  + a->toString() + "\n";
+    }
+    return str;
+}

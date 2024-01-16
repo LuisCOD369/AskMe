@@ -1,19 +1,26 @@
 #ifndef PREGUNTA_H
 #define PREGUNTA_H
 
-
-#include <QString>
+#include <apunte.h>
 
 class Pregunta
 {
 public:
     Pregunta();
-    bool correcta() const;
-    bool respondida() const;
+    Pregunta(Apunte *apunte);
 
+    bool correcto() const;
+    bool respuesta() const;
+    void setCorrecto(bool newCorrecto);
+    void setRespuesta(bool newRespuesta);
+    Apunte *apunte() const;
+    void setApunte(Apunte *newApunte);
+    QString toString() const;
+    void responder(QString termino);
 private:
-    bool m_correcta;
-    bool m_respondida;
+    bool m_correcto;
+    bool m_respuesta;
+    Apunte *m_apunte;
 };
 
 #endif // PREGUNTA_H
