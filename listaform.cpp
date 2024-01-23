@@ -15,7 +15,7 @@ listaForm::listaForm(QWidget *parent) :
     QStringList cabeceraDos;
     cabecera << "Temas";
     ui->tblTemas->setHorizontalHeaderLabels(cabecera);
-    cabeceraDos << "Conceptos";
+    cabeceraDos << "Terminos"<<"Conceptos";
     ui->tblTerminos->setHorizontalHeaderLabels(cabeceraDos);
     cargarAsignaturas();
 
@@ -120,6 +120,7 @@ void listaForm::cargarTerminos(int fila, int columna)
                         {
                             ui->tblTerminos->insertRow(filaTerminos);
                             ui->tblTerminos->setItem(filaTerminos, 0, new QTableWidgetItem(ap->termino()));
+                            ui->tblTerminos->setItem(filaTerminos, 1, new QTableWidgetItem(ap->concepto()));
                             filaTerminos++;
                         }
                         break;

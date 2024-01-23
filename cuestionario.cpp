@@ -5,7 +5,7 @@ Cuestionario::Cuestionario()
 
 }
 
-Cuestionario::Cuestionario(QString asignatura,Tema *tema) : m_tema(tema), m_mostradas(0)
+Cuestionario::Cuestionario(QString asignatura,Tema *tema) : m_tema(tema), m_asignatura(asignatura), m_mostradas(0)
 {
     foreach (Apunte *a, m_tema->apuntes()){
         m_preguntas.append(new Pregunta(a));

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>recursos/UPS.png</file>
+    </qresource>
+</RCC>

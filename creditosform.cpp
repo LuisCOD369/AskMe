@@ -5,7 +5,25 @@ CreditosForm::CreditosForm(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CreditosForm)
 {
+
+
+
     ui->setupUi(this);
+
+    QString imagePath = ":/home/alumno1/QT proyect/AskMe-main/recursos/UPS.png";
+
+    // Cargar la imagen en un QPixmap
+    QPixmap image(imagePath);
+
+    // Escalar la imagen si es necesario
+    image = image.scaled(ui->labelImagen->size(), Qt::KeepAspectRatio);
+
+    // Mostrar la imagen en el QLabel
+    ui->labelImagen->setPixmap(image);
+
+
+
+
 
     connect(this, &CreditosForm::abrirLuis, this, [this]() {
         abrirEnlace("https://github.com/LuisCOD369");

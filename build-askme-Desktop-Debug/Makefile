@@ -64,7 +64,8 @@ SOURCES       = ../AskMe-main/apunte.cpp \
 		../AskMe-main/pregunta.cpp \
 		../AskMe-main/preguntaform.cpp \
 		../AskMe-main/resultadosform.cpp \
-		../AskMe-main/tema.cpp moc_apunteform.cpp \
+		../AskMe-main/tema.cpp qrc_Recursos.cpp \
+		moc_apunteform.cpp \
 		moc_askme.cpp \
 		moc_creditosform.cpp \
 		moc_cuestionarioform.cpp \
@@ -84,6 +85,7 @@ OBJECTS       = apunte.o \
 		preguntaform.o \
 		resultadosform.o \
 		tema.o \
+		qrc_Recursos.o \
 		moc_apunteform.o \
 		moc_askme.o \
 		moc_creditosform.o \
@@ -284,7 +286,8 @@ Makefile: ../AskMe-main/askme.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g+
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../AskMe-main/askme.pro
+		../AskMe-main/askme.pro \
+		../AskMe-main/Recursos.qrc
 	$(QMAKE) -o Makefile ../AskMe-main/askme.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf:
@@ -365,6 +368,7 @@ Makefile: ../AskMe-main/askme.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g+
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
 ../AskMe-main/askme.pro:
+../AskMe-main/Recursos.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../AskMe-main/askme.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 
@@ -379,6 +383,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../AskMe-main/Recursos.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../AskMe-main/apunte.h ../AskMe-main/apunteform.h ../AskMe-main/asignatura.h ../AskMe-main/askme.h ../AskMe-main/creditosform.h ../AskMe-main/cuestionario.h ../AskMe-main/cuestionarioform.h ../AskMe-main/listaform.h ../AskMe-main/pregunta.h ../AskMe-main/preguntaform.h ../AskMe-main/resultadosform.h ../AskMe-main/tema.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../AskMe-main/apunte.cpp ../AskMe-main/apunteform.cpp ../AskMe-main/asignatura.cpp ../AskMe-main/creditosform.cpp ../AskMe-main/cuestionario.cpp ../AskMe-main/cuestionarioform.cpp ../AskMe-main/listaform.cpp ../AskMe-main/main.cpp ../AskMe-main/askme.cpp ../AskMe-main/pregunta.cpp ../AskMe-main/preguntaform.cpp ../AskMe-main/resultadosform.cpp ../AskMe-main/tema.cpp $(DISTDIR)/
@@ -406,8 +411,14 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_Recursos.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_Recursos.cpp
+qrc_Recursos.cpp: ../AskMe-main/Recursos.qrc \
+		/usr/lib/qt5/bin/rcc \
+		../AskMe-main/recursos/UPS.png
+	/usr/lib/qt5/bin/rcc -name Recursos ../AskMe-main/Recursos.qrc -o qrc_Recursos.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
@@ -528,7 +539,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -630,6 +641,9 @@ resultadosform.o: ../AskMe-main/resultadosform.cpp ../AskMe-main/resultadosform.
 tema.o: ../AskMe-main/tema.cpp ../AskMe-main/tema.h \
 		../AskMe-main/apunte.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tema.o ../AskMe-main/tema.cpp
+
+qrc_Recursos.o: qrc_Recursos.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_Recursos.o qrc_Recursos.cpp
 
 moc_apunteform.o: moc_apunteform.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_apunteform.o moc_apunteform.cpp
