@@ -5,7 +5,7 @@ Cuestionario::Cuestionario()
 
 }
 
-Cuestionario::Cuestionario(Tema *tema) : m_tema(tema)
+Cuestionario::Cuestionario(Tema *tema) : m_tema(tema), m_mostradas(0)
 {
     foreach (Apunte *a, m_tema->apuntes()){
         m_preguntas.append(new Pregunta(a));
@@ -15,40 +15,42 @@ Cuestionario::Cuestionario(Tema *tema) : m_tema(tema)
 
 Pregunta *Cuestionario::siguiente()
 {
-    // TODO: Lanzar preguntas al azar
-    foreach(Pregunta *p, m_preguntas){
-        if(!p->respuesta()){
-            return p;
+    QList<Pregunta *> preguntasRespondidas;
+    foreach (Pregunta *p, m_preguntas)
+    {
+        if(!p->respondida())
+        {
+            preguntasRespondidas.append(p);
         }
     }
+    if(!preguntasRespondidas.isEmpty())
+    {
+        int indiceAleatorio = QRandomGenerator::global()->bounded(preguntasRespondidas.size());
+        Pregunta *preguntaAleatoria = preguntasRespondidas[indiceAleatorio];
+        m_mostradas++;
+        return preguntaAleatoria;
+    }
+
     return nullptr;
 }
 
-float Cuestionario::finalizar()
+void Cuestionario::terminar()
 {
-    int correcta = 0;
-    int respondida = 0;
-    foreach(Pregunta *p, m_preguntas)
-    {
-        if(p->respuesta())
-        {
-            respondida++;
-            if(p->correcto())
-            {
-                correcta++;
-            }
+    int correctas = 0;
+    int respondidas = 0;
+    foreach(Pregunta *p, m_preguntas){
+        if(p->respondida()){
+            respondidas++;
+            if (p->correcta())
+                correctas++;
         }
     }
-    if(respondida > 0)
-    {
-        return m_score = (correcta * 100.0) / respondida;
-    }
+    if (respondidas > 0)
+        m_score = (float) correctas / respondidas * 100;
     else
-    {
-        return m_score = 0;
-    }
-
+        m_score = 0;
 }
+
 
 const QStringList &Cuestionario::terminos() const
 {
@@ -63,4 +65,24 @@ float Cuestionario::score() const
 const QList<Pregunta *> &Cuestionario::preguntas() const
 {
     return m_preguntas;
+}
+
+QString Cuestionario::nombreTema() const
+{
+    return m_tema->nombre();
+}
+
+int Cuestionario::totalPreguntas()
+{
+    return m_preguntas.size();
+}
+
+bool Cuestionario::hayMasPreguntas()
+{
+    return (m_mostradas < totalPreguntas());
+}
+
+int Cuestionario::mostradas() const
+{
+    return m_mostradas;
 }

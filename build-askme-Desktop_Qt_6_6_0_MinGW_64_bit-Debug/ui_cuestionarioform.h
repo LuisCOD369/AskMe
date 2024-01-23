@@ -71,7 +71,7 @@ public:
 
     void retranslateUi(QWidget *CuestionarioForm)
     {
-        CuestionarioForm->setWindowTitle(QCoreApplication::translate("CuestionarioForm", "Form", nullptr));
+        CuestionarioForm->setWindowTitle(QCoreApplication::translate("CuestionarioForm", "Eleccion de cuestionario", nullptr));
         label->setText(QCoreApplication::translate("CuestionarioForm", "Asignatura:", nullptr));
         label_2->setText(QCoreApplication::translate("CuestionarioForm", "Tema:", nullptr));
     } // retranslateUi

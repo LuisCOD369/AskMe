@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../askme-main/cuestionarioform.h"
+#include "../../../Documents/Universidad Politecnica Salesiana/2do Semestre/POO/Parcial 2/askme/cuestionarioform.h"
 #include <QtCore/qmetatype.h>
 
 #if __has_include(<QtCore/qtmochelpers.h>)
@@ -45,11 +45,12 @@ static constexpr auto qt_meta_stringdata_CLASSCuestionarioFormENDCLASS = QtMocHe
     "cuestionario",
     "on_cmbAsignaturas_currentIndexChanged",
     "index",
-    "on_buttonBox_accepted"
+    "on_buttonBox_accepted",
+    "on_buttonBox_rejected"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSCuestionarioFormENDCLASS_t {
-    uint offsetsAndSizes[16];
+    uint offsetsAndSizes[18];
     char stringdata0[17];
     char stringdata1[19];
     char stringdata2[1];
@@ -58,6 +59,7 @@ struct qt_meta_stringdata_CLASSCuestionarioFormENDCLASS_t {
     char stringdata5[38];
     char stringdata6[6];
     char stringdata7[22];
+    char stringdata8[22];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSCuestionarioFormENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -70,7 +72,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSCuestionarioFormENDCLASS_t qt_m
         QT_MOC_LITERAL(51, 12),  // "cuestionario"
         QT_MOC_LITERAL(64, 37),  // "on_cmbAsignaturas_currentInde..."
         QT_MOC_LITERAL(102, 5),  // "index"
-        QT_MOC_LITERAL(108, 21)   // "on_buttonBox_accepted"
+        QT_MOC_LITERAL(108, 21),  // "on_buttonBox_accepted"
+        QT_MOC_LITERAL(130, 21)   // "on_buttonBox_rejected"
     },
     "CuestionarioForm",
     "cuestionarioCreado",
@@ -79,7 +82,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSCuestionarioFormENDCLASS_t qt_m
     "cuestionario",
     "on_cmbAsignaturas_currentIndexChanged",
     "index",
-    "on_buttonBox_accepted"
+    "on_buttonBox_accepted",
+    "on_buttonBox_rejected"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -91,7 +95,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSCuestionarioFormENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -99,17 +103,19 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSCuestionarioFormENDCLASS[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   32,    2, 0x06,    1 /* Public */,
+       1,    1,   38,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    1,   35,    2, 0x08,    3 /* Private */,
-       7,    0,   38,    2, 0x08,    5 /* Private */,
+       5,    1,   41,    2, 0x08,    3 /* Private */,
+       7,    0,   44,    2, 0x08,    5 /* Private */,
+       8,    0,   45,    2, 0x08,    6 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -131,6 +137,8 @@ Q_CONSTINIT const QMetaObject CuestionarioForm::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_buttonBox_accepted'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_buttonBox_rejected'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -145,6 +153,7 @@ void CuestionarioForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 0: _t->cuestionarioCreado((*reinterpret_cast< std::add_pointer_t<Cuestionario*>>(_a[1]))); break;
         case 1: _t->on_cmbAsignaturas_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 2: _t->on_buttonBox_accepted(); break;
+        case 3: _t->on_buttonBox_rejected(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -178,13 +187,13 @@ int CuestionarioForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

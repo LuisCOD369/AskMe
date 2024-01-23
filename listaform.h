@@ -5,6 +5,7 @@
 #include <QTableWidget>
 
 #include <asignatura.h>
+#include <ui_listaform.h>
 
 namespace Ui {
 class listaForm;
@@ -19,6 +20,7 @@ public:
     void setAsignaturas(QList<Asignatura *> *asignaturas);
     void cargarAsignaturas();
     void cargarTT(QString asignatura);
+    void cargarTerminos(int fila, int columna);
     void limpiar();
     ~listaForm();
 
@@ -28,6 +30,7 @@ private:
 
 private slots:
     void cargarTemas();
+    void on_tblTemas_cellClicked(int row, int column);
 };
 
 #endif // LISTAFORM_H

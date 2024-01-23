@@ -98,7 +98,7 @@ public:
 
     void retranslateUi(QWidget *PreguntaForm)
     {
-        PreguntaForm->setWindowTitle(QCoreApplication::translate("PreguntaForm", "Form", nullptr));
+        PreguntaForm->setWindowTitle(QCoreApplication::translate("PreguntaForm", "Preguntas", nullptr));
         label_3->setText(QCoreApplication::translate("PreguntaForm", "Tema:", nullptr));
         lblTema->setText(QCoreApplication::translate("PreguntaForm", "Desconocido", nullptr));
         label->setText(QCoreApplication::translate("PreguntaForm", "Concepto:", nullptr));

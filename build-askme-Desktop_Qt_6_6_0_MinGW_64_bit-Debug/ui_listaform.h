@@ -89,7 +89,7 @@ public:
 
     void retranslateUi(QWidget *listaForm)
     {
-        listaForm->setWindowTitle(QCoreApplication::translate("listaForm", "Form", nullptr));
+        listaForm->setWindowTitle(QCoreApplication::translate("listaForm", "Lista", nullptr));
         label_2->setText(QCoreApplication::translate("listaForm", "Termino", nullptr));
         label_3->setText(QCoreApplication::translate("listaForm", "Concepto", nullptr));
         label->setText(QCoreApplication::translate("listaForm", "Asignatura", nullptr));

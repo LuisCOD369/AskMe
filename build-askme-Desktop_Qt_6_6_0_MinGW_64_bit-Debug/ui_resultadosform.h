@@ -37,11 +37,17 @@ public:
         if (ResultadosForm->objectName().isEmpty())
             ResultadosForm->setObjectName("ResultadosForm");
         ResultadosForm->resize(415, 272);
-        ResultadosForm->setStyleSheet(QString::fromUtf8("background-color: rgb(138, 131, 137);"));
+        ResultadosForm->setStyleSheet(QString::fromUtf8(""));
         gridLayout = new QGridLayout(ResultadosForm);
         gridLayout->setObjectName("gridLayout");
         lblScore = new QLabel(ResultadosForm);
         lblScore->setObjectName("lblScore");
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Source Code Pro")});
+        font.setPointSize(15);
+        font.setBold(true);
+        font.setItalic(true);
+        lblScore->setFont(font);
 
         gridLayout->addWidget(lblScore, 4, 0, 1, 1);
 

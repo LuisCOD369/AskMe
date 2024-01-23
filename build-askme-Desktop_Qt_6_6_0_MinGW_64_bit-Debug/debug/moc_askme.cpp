@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../askme-main/askme.h"
+#include "../../../Documents/Universidad Politecnica Salesiana/2do Semestre/POO/Parcial 2/askme/askme.h"
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
@@ -50,11 +50,13 @@ static constexpr auto qt_meta_stringdata_CLASSAskmeENDCLASS = QtMocHelpers::stri
     "on_preguntasContestadas",
     "on_actionNuevo_triggered",
     "on_actionLista_triggered",
-    "on_actionGenerar_triggered"
+    "on_actionSalir_triggered",
+    "on_actionGenerar_triggered",
+    "on_actionCreditos_triggered"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSAskmeENDCLASS_t {
-    uint offsetsAndSizes[24];
+    uint offsetsAndSizes[28];
     char stringdata0[6];
     char stringdata1[16];
     char stringdata2[1];
@@ -66,7 +68,9 @@ struct qt_meta_stringdata_CLASSAskmeENDCLASS_t {
     char stringdata8[24];
     char stringdata9[25];
     char stringdata10[25];
-    char stringdata11[27];
+    char stringdata11[25];
+    char stringdata12[27];
+    char stringdata13[28];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSAskmeENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -83,7 +87,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSAskmeENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(87, 23),  // "on_preguntasContestadas"
         QT_MOC_LITERAL(111, 24),  // "on_actionNuevo_triggered"
         QT_MOC_LITERAL(136, 24),  // "on_actionLista_triggered"
-        QT_MOC_LITERAL(161, 26)   // "on_actionGenerar_triggered"
+        QT_MOC_LITERAL(161, 24),  // "on_actionSalir_triggered"
+        QT_MOC_LITERAL(186, 26),  // "on_actionGenerar_triggered"
+        QT_MOC_LITERAL(213, 27)   // "on_actionCreditos_triggered"
     },
     "Askme",
     "on_apunteTomado",
@@ -96,7 +102,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSAskmeENDCLASS_t qt_meta_stringd
     "on_preguntasContestadas",
     "on_actionNuevo_triggered",
     "on_actionLista_triggered",
-    "on_actionGenerar_triggered"
+    "on_actionSalir_triggered",
+    "on_actionGenerar_triggered",
+    "on_actionCreditos_triggered"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -108,7 +116,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSAskmeENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -116,17 +124,21 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSAskmeENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   50,    2, 0x0a,    1 /* Public */,
-       5,    1,   53,    2, 0x0a,    3 /* Public */,
-       8,    1,   56,    2, 0x0a,    5 /* Public */,
-       9,    0,   59,    2, 0x08,    7 /* Private */,
-      10,    0,   60,    2, 0x08,    8 /* Private */,
-      11,    0,   61,    2, 0x08,    9 /* Private */,
+       1,    1,   62,    2, 0x0a,    1 /* Public */,
+       5,    1,   65,    2, 0x0a,    3 /* Public */,
+       8,    1,   68,    2, 0x0a,    5 /* Public */,
+       9,    0,   71,    2, 0x08,    7 /* Private */,
+      10,    0,   72,    2, 0x08,    8 /* Private */,
+      11,    0,   73,    2, 0x08,    9 /* Private */,
+      12,    0,   74,    2, 0x08,   10 /* Private */,
+      13,    0,   75,    2, 0x08,   11 /* Private */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -156,7 +168,11 @@ Q_CONSTINIT const QMetaObject Askme::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_actionLista_triggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_actionSalir_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_actionGenerar_triggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_actionCreditos_triggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -172,8 +188,10 @@ void Askme::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 1: _t->on_cuestionarioCreado((*reinterpret_cast< std::add_pointer_t<Cuestionario*>>(_a[1]))); break;
         case 2: _t->on_preguntasContestadas((*reinterpret_cast< std::add_pointer_t<Cuestionario*>>(_a[1]))); break;
         case 3: _t->on_actionNuevo_triggered(); break;
-        //case 4: _t->on_actionLista_triggered(); break;
-        case 5: _t->on_actionGenerar_triggered(); break;
+        case 4: _t->on_actionLista_triggered(); break;
+        case 5: _t->on_actionSalir_triggered(); break;
+        case 6: _t->on_actionGenerar_triggered(); break;
+        case 7: _t->on_actionCreditos_triggered(); break;
         default: ;
         }
     }
@@ -198,13 +216,13 @@ int Askme::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 8)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 8;
     }
     return _id;
 }

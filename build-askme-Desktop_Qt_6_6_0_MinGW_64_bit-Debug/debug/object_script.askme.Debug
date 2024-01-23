@@ -1,7 +1,7 @@
 debug/apunte.o
 debug/apunteform.o
 debug/asignatura.o
-debug/creditos.o
+debug/creditosform.o
 debug/cuestionario.o
 debug/cuestionarioform.o
 debug/listaform.o
@@ -13,7 +13,7 @@ debug/resultadosform.o
 debug/tema.o
 debug/moc_apunteform.o
 debug/moc_askme.o
-debug/moc_creditos.o
+debug/moc_creditosform.o
 debug/moc_cuestionarioform.o
 debug/moc_listaform.o
 debug/moc_preguntaform.o

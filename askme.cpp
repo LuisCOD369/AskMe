@@ -6,11 +6,11 @@ Askme::Askme(QWidget *parent)
     , ui(new Ui::Askme)
 {
     ui->setupUi(this);
-
     cargar();
-    guardar();
+
     connect(ui->actionCargar, SIGNAL(released()), this, SLOT(on_actionCargar_triggered()));
 }
+
 Askme::~Askme()
 {
     delete ui;
@@ -23,7 +23,7 @@ void Askme::on_apunteTomado(Apunte *apunte)
         qDebug().noquote() << a->toString();
     }
     guardar();
-    cargar();
+    //cargar();
     if (ui->mdiArea->currentSubWindow())
     {
         listaForm *listaVentana = qobject_cast<listaForm *>(ui->mdiArea->currentSubWindow()->widget());
@@ -33,7 +33,58 @@ void Askme::on_apunteTomado(Apunte *apunte)
         }
     }
 }
+void Askme::guardar()
+{
+    QFile file("apuntes.csv");
+    //qDebug() << "Intentando abrir el archivo para escribir...";
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        qDebug() << "Archivo abierto correctamente.";
+        QTextStream salida(&file);
+        salida << "Asignatura\tTema\tTermino\tConcepto\n";
+        foreach(Asignatura *a, m_asignaturas)
+        {
+            QString nombreAsignatura = a->nombre();
+            foreach(Tema *t, a->temas())
+            {
+                QString nombreTema = t->nombre();
+                foreach (Apunte *ap, t->apuntes())
+                {
+                    QString termino = ap->termino();
+                    QString concepto = ap->concepto();
 
+                    salida << nombreAsignatura << "\t" << nombreTema << "\t" << termino << "\t" << concepto << "\n";
+                }
+            }
+        }
+        file.close();
+        //qDebug() << "Archivo cerrado correctamente.";
+    }
+    else
+    {
+        QMessageBox::critical(this, "Agregar apunte", "No se pudieron guardar los datos");
+        //qDebug() << "Error al abrir el archivo para escribir.";
+    }
+}
+void Askme::on_cuestionarioCreado(Cuestionario *cuestionario)
+{
+    PreguntaForm *w = new PreguntaForm(this);
+    w->setCuestionario(cuestionario);
+    connect(w, SIGNAL(preguntasContestadas(Cuestionario*)), this, SLOT(on_preguntasContestadas(Cuestionario*)));
+
+    cargarSubVentana(w);
+}
+
+void Askme::on_preguntasContestadas(Cuestionario *cuestionario)
+{
+    cuestionario->terminar();
+    ResultadosForm *w = new ResultadosForm(this);
+    w->setDatos(cuestionario);
+    cargarSubVentana(w);
+
+    //qDebug() << "Preguntas contestadas. Abriendo ResultadosForm...";
+
+}
 
 void Askme::cargarSubVentana(QWidget *ventana)
 {
@@ -108,6 +159,19 @@ void Askme::on_actionNuevo_triggered()
     w->cargarAsignaturas();
     connect(w, SIGNAL(nuevaAsignaturaCreada(Asignatura*)), this, SLOT(on_nuevaAsignaturaCreada(Asignatura*)));
     connect(w, SIGNAL(apunteTomado(Apunte*)), this, SLOT(on_apunteTomado(Apunte*)));
+
+    cargarSubVentana(w);
+}
+
+
+void Askme::on_actionGenerar_triggered()
+{
+    CuestionarioForm *w = new CuestionarioForm(this);
+    w->setAsignaturas(m_asignaturas);
+    w->cargarAsignaturas();
+
+    connect(w, SIGNAL(cuestionarioCreado(Cuestionario*)), this, SLOT(on_cuestionarioCreado(Cuestionario*)));
+
     cargarSubVentana(w);
 }
 
@@ -122,3 +186,21 @@ void Askme::on_actionLista_triggered()
     cargarSubVentana(w);
     w->show();
 }
+
+void Askme::on_actionCreditos_triggered()
+{
+    CreditosForm *w = new CreditosForm(this);
+    cargarSubVentana(w);
+}
+void Askme::on_actionSalir_triggered()
+{
+    int opcion = QMessageBox::question(this, "Salir del programa", "¿Estas seguro de que quieres salir del programa?", QMessageBox::Yes | QMessageBox::No);
+        if(opcion == QMessageBox::Yes)
+    {
+        qApp->quit();
+    }
+}
+
+
+
+

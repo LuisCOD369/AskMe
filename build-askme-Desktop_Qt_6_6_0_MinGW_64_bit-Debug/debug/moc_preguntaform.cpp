@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../askme-main/preguntaform.h"
+#include "../../../Documents/Universidad Politecnica Salesiana/2do Semestre/POO/Parcial 2/askme/preguntaform.h"
 #include <QtCore/qmetatype.h>
 
 #if __has_include(<QtCore/qtmochelpers.h>)

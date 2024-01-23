@@ -32,6 +32,7 @@ public:
     QAction *actionCreditos;
     QAction *actionGuardar;
     QAction *actionCargar;
+    QAction *actionListas;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QMdiArea *mdiArea;
@@ -61,6 +62,8 @@ public:
         actionGuardar->setObjectName("actionGuardar");
         actionCargar = new QAction(Askme);
         actionCargar->setObjectName("actionCargar");
+        actionListas = new QAction(Askme);
+        actionListas->setObjectName("actionListas");
         centralwidget = new QWidget(Askme);
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
@@ -97,6 +100,7 @@ public:
         menuApuntes->addAction(actionNuevo);
         menuApuntes->addAction(actionLista);
         menuPreguntas->addAction(actionGenerar);
+        menuPreguntas->addSeparator();
         menuAcerca_de->addAction(actionCreditos);
 
         retranslateUi(Askme);
@@ -138,6 +142,7 @@ public:
 #endif // QT_CONFIG(tooltip)
         actionGuardar->setText(QCoreApplication::translate("Askme", "Guardar", nullptr));
         actionCargar->setText(QCoreApplication::translate("Askme", "Cargar", nullptr));
+        actionListas->setText(QCoreApplication::translate("Askme", "Listas", nullptr));
         menuArchivo->setTitle(QCoreApplication::translate("Askme", "&Archivo", nullptr));
         menuApuntes->setTitle(QCoreApplication::translate("Askme", "&Apuntes", nullptr));
         menuPreguntas->setTitle(QCoreApplication::translate("Askme", "&Preguntas", nullptr));

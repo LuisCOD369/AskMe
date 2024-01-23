@@ -10,9 +10,10 @@ class Asignatura
 public:
     Asignatura();
     Asignatura(const QString &nombre);
-
-    const QList <Tema *> &temas() const;
     void agregarTema(Tema *t);
+
+    //const QString &nombre() const;
+    const QList<Tema *> &temas() const;
     const QString toString() const;
     QString nombre() const;
 private:

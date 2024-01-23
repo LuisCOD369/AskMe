@@ -1,7 +1,7 @@
 release/apunte.o
 release/apunteform.o
 release/asignatura.o
-release/creditos.o
+release/creditosform.o
 release/cuestionario.o
 release/cuestionarioform.o
 release/listaform.o
@@ -13,7 +13,7 @@ release/resultadosform.o
 release/tema.o
 release/moc_apunteform.o
 release/moc_askme.o
-release/moc_creditos.o
+release/moc_creditosform.o
 release/moc_cuestionarioform.o
 release/moc_listaform.o
 release/moc_preguntaform.o
