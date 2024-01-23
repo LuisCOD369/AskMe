@@ -30,6 +30,7 @@ void ResultadosForm::cargarDatos()
 {
     float score = m_cuestionario->score();
     QString tema = m_cuestionario->nombreTema();
+    ui->lblTema->setText(tema);
 
     QString porcentaje = QString::number(score, 'f', 2) + "%";
     if (score < 30)
