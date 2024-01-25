@@ -10,7 +10,7 @@ listaForm::listaForm(QWidget *parent) :
     connect(ui->cmbAsignaturas, SIGNAL(currentIndexChanged(const QString&)), this, SLOT(cargarTemas()));
     connect(ui->tblTemas, SIGNAL(cellClicked(int, int)), this, SLOT(cargarTerminos(int, int)));
     ui->tblTemas->setColumnCount(1);
-    ui->tblTerminos->setColumnCount(1);
+    ui->tblTerminos->setColumnCount(2);
     QStringList cabecera;
     QStringList cabeceraDos;
     cabecera << "Temas";
@@ -56,6 +56,11 @@ void listaForm::cargarTemas()
                 ui->tblTemas->insertRow(fila);
                 ui->tblTemas->setItem(fila, 0, new QTableWidgetItem(t->nombre()));
                 fila++;
+            }
+            // Ajusta el ancho de la columna después de insertar las filas.
+            for (int columna = 0; columna < ui->tblTemas->columnCount(); ++columna)
+            {
+                ui->tblTemas->setColumnWidth(columna, calcularAnchoColumna(ui->tblTemas, columna));
             }
         }
     }
@@ -122,13 +127,42 @@ void listaForm::cargarTerminos(int fila, int columna)
                             ui->tblTerminos->setItem(filaTerminos, 0, new QTableWidgetItem(ap->termino()));
                             ui->tblTerminos->setItem(filaTerminos, 1, new QTableWidgetItem(ap->concepto()));
                             filaTerminos++;
+
                         }
+                        for (int columna = 0; columna < ui->tblTerminos->columnCount(); ++columna)
+                        {
+                            ui->tblTerminos->setColumnWidth(columna, calcularAnchoColumna(ui->tblTerminos, columna));
+                        }
+
                         break;
                     }
                 }
             }
         }
     }
+
+}
+
+int listaForm::calcularAnchoColumna(QTableWidget *table, int columna)
+{
+    // Calcula el ancho mínimo necesario para mostrar el contenido de la columna.
+    int anchoMinimo = 0;
+
+    for (int fila = 0; fila < table->rowCount(); ++fila)
+    {
+        QTableWidgetItem *item = table->item(fila, columna);
+        if (item)
+        {
+            QFontMetrics fm(item->font());
+            int anchoTexto = fm.boundingRect(item->text()).width();
+            anchoMinimo = qMax(anchoMinimo, anchoTexto);
+        }
+    }
+
+    // Agrega un pequeño espacio para el margen.
+    anchoMinimo += 35;
+
+    return anchoMinimo;
 }
 
 void listaForm::limpiar()

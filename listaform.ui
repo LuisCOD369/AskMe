@@ -18,13 +18,27 @@
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <family>Sitka Small</family>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Temas</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tblTemas"/>
+      <widget class="QTableWidget" name="tblTemas">
+       <property name="font">
+        <font>
+         <family>Segoe Print</family>
+        </font>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -32,25 +46,55 @@
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <family>Sitka Small</family>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Terminos y concepto</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tblTerminos"/>
+      <widget class="QTableWidget" name="tblTerminos">
+       <property name="font">
+        <font>
+         <family>Segoe Print</family>
+        </font>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Sitka Small</family>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Asignatura</string>
      </property>
     </widget>
    </item>
    <item row="0" column="1" colspan="2">
-    <widget class="QComboBox" name="cmbAsignaturas"/>
+    <widget class="QComboBox" name="cmbAsignaturas">
+     <property name="font">
+      <font>
+       <family>Artifakt Element</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

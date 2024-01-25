@@ -21,6 +21,7 @@ public:
     void cargarAsignaturas();
     void cargarTT(QString asignatura);
     void cargarTerminos(int fila, int columna);
+    int calcularAnchoColumna(QTableWidget *table, int columna);
     void limpiar();
     ~listaForm();
 
