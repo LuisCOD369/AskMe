@@ -56,8 +56,9 @@ void ResultadosForm::cargarDatos()
     ui->tblResultados->setRowCount(preguntas.size());
     ui->tblResultados->setColumnCount(2);
 
-    ui->tblResultados->setHorizontalHeaderLabels({"Término", "V/F"});
+    ui->tblResultados->setHorizontalHeaderLabels({"Término", "Respuesta"});
     ui->tblResultados->horizontalHeader()->setStyleSheet("QHeaderView::section { background-color: cyan }");
+
 
 
 

@@ -4,22 +4,24 @@
 CreditosForm::CreditosForm(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CreditosForm)
+
 {
 
 
 
     ui->setupUi(this);
+    //layout()->setSizeConstraint(QLayout::SetFixedSize);
 
-    QString imagePath = ":/home/alumno1/QT proyect/AskMe-main/recursos/UPS.png";
+//    QString imagePath = ":/home/alumno1/QT proyect/AskMe-main/recursos/UPS.png";
 
-    // Cargar la imagen en un QPixmap
-    QPixmap image(imagePath);
+//    // Cargar la imagen en un QPixmap
+//    QPixmap image(imagePath);
 
-    // Escalar la imagen si es necesario
-    image = image.scaled(ui->labelImagen->size(), Qt::KeepAspectRatio);
+//    // Escalar la imagen si es necesario
+//    image = image.scaled(ui->labelImagen->size(), Qt::KeepAspectRatio);
 
-    // Mostrar la imagen en el QLabel
-    ui->labelImagen->setPixmap(image);
+//    // Mostrar la imagen en el QLabel
+//    ui->labelImagen->setPixmap(image);
 
 
 

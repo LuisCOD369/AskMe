@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>415</width>
+    <width>272</width>
     <height>272</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>255</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Resultados</string>
@@ -17,12 +23,10 @@
    <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="4" column="0">
-    <widget class="QLabel" name="lblScore">
+   <item row="0" column="2">
+    <widget class="QLabel" name="lblAsignatura">
      <property name="font">
       <font>
-       <family>Source Code Pro</family>
-       <pointsize>15</pointsize>
        <italic>true</italic>
        <bold>true</bold>
       </font>
@@ -34,22 +38,14 @@
    </item>
    <item row="2" column="1">
     <widget class="QLabel" name="label_3">
+     <property name="font">
+      <font>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Tema:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2">
-    <widget class="QLabel" name="lblTema">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Asignatura:</string>
      </property>
     </widget>
    </item>
@@ -60,15 +56,62 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QLabel" name="lblAsignatura">
+   <item row="0" column="1">
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Asignatura:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLabel" name="lblTema">
+     <property name="font">
+      <font>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string/>
      </property>
     </widget>
    </item>
    <item row="3" column="0" colspan="5">
-    <widget class="QTableWidget" name="tblResultados"/>
+    <widget class="QTableWidget" name="tblResultados">
+     <property name="maximumSize">
+      <size>
+       <width>254</width>
+       <height>16777215</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QLabel" name="lblScore">
+     <property name="font">
+      <font>
+       <family>Source Code Pro</family>
+       <pointsize>11</pointsize>
+       <italic>true</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">alternate-background-color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
